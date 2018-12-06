@@ -29,11 +29,11 @@ class Agent:
             'debt': self.debt,
             'income': self.income,
             'age': self.ageInMonths / 12,
-            'employed': not self.isUnemployed,
+            'employed': int(not self.isUnemployed),
         }
 
     def update_agent(self):
-        self.debt = compound_interest_monthly(self.debt, self.interest, 1)
+        self.debt = int(compound_interest_monthly(self.debt, self.interest, 1))
         self.ageInMonths += 1
         if not self.isUnemployed:
             self.debt -= self.income

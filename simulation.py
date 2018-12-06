@@ -4,7 +4,7 @@ import csv
 with open('financial_lives.csv', 'wb') as f:
     w = csv.writer(f)
 
-    for i in range(1000):
+    for a in range(1000):
         agent = Agent()
 
         for n in range(deathAge - startingAge + 1):
@@ -16,7 +16,7 @@ with open('financial_lives.csv', 'wb') as f:
                 'action': action,
                 'reward': reward
             })
-            if n is 0:
+            if a is 0 and n is 0:
                 w.writerow(state.keys())
             agent.update_agent()
             w.writerow(state.values())

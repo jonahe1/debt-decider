@@ -7,7 +7,7 @@ startingAge = 18 * 12
 deathAge = 80 * 12
 roundConst = -3
 
-incomeRange = [10000 / 12, 1000000 / 12]
+incomeRange = [10000 / 12, 500000 / 12]
 maxTotalDebt = 1000000
 maxNewDebt = 10000
 

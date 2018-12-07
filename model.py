@@ -33,10 +33,11 @@ class Agent:
         }
 
     def update_agent(self):
-        self.debt = int(compound_interest_monthly(self.debt, self.interest, 1))
+        self.debt = int(round(compound_interest_monthly(self.debt, self.interest, 1), roundConst))
         self.ageInMonths += 1
         if not self.isUnemployed:
             self.debt -= self.income
+            self.debt = max(self.debt, 0)
             rand = random.random()
             if rand < incomeUncert:
                 self.isUnemployed = True
@@ -66,8 +67,9 @@ class Agent:
         if self.debt + action > maxTotalDebt:
             return 0
         if self.is_bankrupt():
+            self.debt = 0
             return -99999999999
         elif self.is_dead():
-            return 9999999999
+            return 99999
         else:
             return action
